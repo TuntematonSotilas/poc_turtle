@@ -1,4 +1,4 @@
-use turtle::{Drawing, Turtle};
+use turtle::{Turtle};
 
 fn main() {
 
@@ -21,8 +21,25 @@ fn main() {
     turtle.set_speed(4);
     turtle.show();
     turtle.pen_down();
+    
+    h(&mut turtle);
+    blank(&mut turtle);
+    e(&mut turtle);
+    blank(&mut turtle);
+    l(&mut turtle);
+    
 
-    // Letter H
+    turtle.drawing().save_svg("turtle.svg");
+}
+
+
+fn blank(turtle: &mut Turtle) {
+    turtle.pen_up();
+    turtle.forward(100.);
+    turtle.pen_down();
+}
+
+fn h(turtle: &mut Turtle) {
     turtle.forward(200.);
     turtle.backward(100.);
     turtle.right(90.);
@@ -30,8 +47,24 @@ fn main() {
     turtle.left(90.);
     turtle.forward(100.);
     turtle.backward(200.);
-    
-    turtle.pen_up();
+    turtle.right(90.);
+}
+
+fn e(turtle: &mut Turtle) {
+    turtle.right(180.);
+    for _ in 0..270 {
+        // Move forward three steps
+        turtle.forward(0.7);
+        // Rotate to the right (anti-clockwise) by 1 degree
+        turtle.right(1.);
+    }
     turtle.right(90.);
     turtle.forward(50.);
+    turtle.right(180.);   
+}
+
+fn l(turtle: &mut Turtle) {
+    turtle.left(90.);
+    turtle.forward(100.);
+    turtle.left(90.);
 }
