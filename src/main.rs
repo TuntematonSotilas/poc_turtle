@@ -17,7 +17,7 @@ fn main() {
     turtle.set_speed(12);
     turtle.hide();
     turtle.pen_up();
-    turtle.go_to([-350., -100.]);
+    turtle.go_to([-300., -100.]);
     turtle.set_speed(4);
     turtle.show();
     turtle.pen_down();
@@ -27,7 +27,8 @@ fn main() {
     e(&mut turtle);
     blank(&mut turtle);
     l(&mut turtle);
-    
+    blank(&mut turtle);
+    l2(&mut turtle);
 
     turtle.drawing().save_svg("turtle.svg");
 }
@@ -59,12 +60,21 @@ fn e(turtle: &mut Turtle) {
         turtle.right(1.);
     }
     turtle.right(90.);
-    turtle.forward(50.);
-    turtle.right(180.);   
+    turtle.forward(80.);
+    turtle.right(180.); 
+    turtle.forward(50.);  
 }
 
 fn l(turtle: &mut Turtle) {
     turtle.left(90.);
-    turtle.forward(100.);
+    turtle.forward(150.);
+    turtle.backward(200.);
+    turtle.right(90.);
+}
+
+fn l2(turtle: &mut Turtle) {
     turtle.left(90.);
+    turtle.forward(200.);
+    turtle.backward(200.);
+    turtle.right(90.);
 }
